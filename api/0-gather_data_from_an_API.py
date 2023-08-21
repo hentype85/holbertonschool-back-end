@@ -16,11 +16,13 @@ if __name__ == "__main__":
         todos = f"https://jsonplaceholder.typicode.com/todos/?userId={id}"
 
         requests_user = requests.get(user)
+        requests_todo = requests.get(todos)
+
         data_user = requests_user.json()
+        data_todos = requests_todo.json()
+
         name = data_user.get("name")
 
-        requests_todo = requests.get(todos)
-        data_todos = requests_todo.json()
         tasks = []
         for t in data_todos:
             if t.get("completed"):
