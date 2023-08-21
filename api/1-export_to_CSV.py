@@ -29,7 +29,6 @@ if __name__ == "__main__":
         # open the CSV file in write mode and create a csv.writer object
         with open(file_name, "w") as fd:
             txt = csv.writer(fd, quoting=csv.QUOTE_ALL)
-            # txt.writerow(["ID", "USER NAME", "COMPLETED", "TITLE"])
             # write each row to the CSV file
             for t in data_todos:
                 txt.writerow([id, username, t["completed"], t["title"]])
