@@ -26,7 +26,9 @@ if __name__ == "__main__":
 
         file_name = f"{id}.csv"
 
+        # open the CSV file in write mode and create a csv.writer object
         with open(file_name, "w") as fd:
-            txt = csv.writer(fd)
+            txt = csv.writer(fd, quoting=csv.QUOTE_ALL)
+            # iterate through the elements in data_todos and write each row to the CSV file
             for t in data_todos:
                 txt.writerow([id, username, t["completed"], t["title"]])
