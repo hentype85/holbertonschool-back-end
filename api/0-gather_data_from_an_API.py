@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+""" Write a Python script that, using this REST API,
+    for a given employee ID, returns information
+    """
+
+import requests
+import sys
+
+
+if __name__ == "__main__":
+
+    if len(sys.argv) == 2:
+        id = sys.argv[1]
+
+        user = f"https://jsonplaceholder.typicode.com/users/{id}"
+        todos = f"https://jsonplaceholder.typicode.com/todos/?userId={id}"
+
+        requests_user = requests.get(user)
+        data_user = requests_user.json()
+        name = data_user.get("name")
+
+        requests_todo = requests.get(todos)
+        data_todos = requests_todo.json()
+        tasks = []
+        for t in data_todos:
+            if t.get("completed"):
+                tasks.append(t.get("title"))
+
+        # EMPLOYEE_NAME = name
+        # NUMBER_OF_DONE_TASKS = tasks
+        # TOTAL_NUMBER_OF_TASKS = data_todos
+
+        print("Employee {} is done with tasks({}/{}):".format(
+            name, len(tasks), len(data_todos)))
+
+        for i in tasks:
+            print("\t {}".format(i))
