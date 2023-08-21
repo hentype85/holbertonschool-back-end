@@ -14,7 +14,7 @@ if __name__ == "__main__":
         id = sys.argv[1]
 
         user = f"https://jsonplaceholder.typicode.com/users/{id}"
-        todos = f"https://jsonplaceholder.typicode.com/todos/?userId={id}"
+        todos = f"https://jsonplaceholder.typicode.com/todos?userId={id}"
 
         requests_user = requests.get(user)
         requests_todo = requests.get(todos)

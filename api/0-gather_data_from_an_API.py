@@ -13,7 +13,7 @@ if __name__ == "__main__":
         id = sys.argv[1]
 
         user = f"https://jsonplaceholder.typicode.com/users/{id}"
-        todos = f"https://jsonplaceholder.typicode.com/todos/?userId={id}"
+        todos = f"https://jsonplaceholder.typicode.com/todos?userId={id}"
 
         requests_user = requests.get(user)
         requests_todo = requests.get(todos)
@@ -28,12 +28,7 @@ if __name__ == "__main__":
             if t.get("completed"):
                 tasks.append(t.get("title"))
 
-        # EMPLOYEE_NAME = name
-        # NUMBER_OF_DONE_TASKS = tasks
-        # TOTAL_NUMBER_OF_TASKS = data_todos
-
         print("Employee {} is done with tasks({}/{}):".format(
             name, len(tasks), len(data_todos)))
-
         for i in tasks:
             print("\t {}".format(i))
