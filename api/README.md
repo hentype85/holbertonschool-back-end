@@ -11,3 +11,7 @@ python3 1-export_to_CSV.py 2
 ```
 python3 2-export_to_JSON.py 2
 ```
+```
+python3 3-dictionary_of_list_of_dictionaries.py
+cat todo_all_employees.json
+```
