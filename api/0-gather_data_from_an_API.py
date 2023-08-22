@@ -9,8 +9,8 @@ import sys
 if __name__ == "__main__":
 
     if len(sys.argv) == 2:
-        id = sys.argv[1]
 
+        id = sys.argv[1]
         user = f"https://jsonplaceholder.typicode.com/users/{id}"
         todos = f"https://jsonplaceholder.typicode.com/todos?userId={id}"
 
